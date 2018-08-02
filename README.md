@@ -12,6 +12,7 @@ The ts file of component, the "Styleurl" can set by your own,since the plugin cs
 Include 3 file : css, js and image
 
 ### css
+```
 Title: frame.css _> 116 -> .custom-nav label <br >
 Nav bar: frame.css -> 106 -> .custom-nav <br >
 Background-image : frame.css -> 97 -> .custom-border <br >
@@ -23,6 +24,7 @@ Reply bubble button hover: reply.css -> 88<br >
 Footer: input.css -> 5 ->.bubble-container .input-wrap <br >
 Textarea : input.css -> 14 ->.bubble-container .input-wrap textarea <br >
 Textarea placeholder: input.css -> 1 -> ::placeholder<br >
+```
 
 ### js
 send button: Bubbles.js -> 129
