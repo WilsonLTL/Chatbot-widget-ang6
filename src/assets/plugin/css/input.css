@@ -12,11 +12,11 @@
 	color: #2c2c2c;
 }
 .bubble-container .input-wrap textarea {
-	width: calc(100% - 110px);
+	width: 70%;
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
 	color: #2c2c2c;
 	background: transparent;
-	font-size: 14px;
+	font-size: 18px;
 	letter-spacing: .5px;
 	font-weight: 400;
 	margin: 10px;
