@@ -54,4 +54,24 @@ send button: Bubbles.js -> 129
 }
 ```
 
+## Remark version 3.4.0 for Hailey:
+<ul>
+<li>Update the new NLP version, please view "PS:1"</li>
+<li>Update of css, please view "PS:2"</li
+</ul>
+
+
+### PS1
+```
+Script.js -> line 2 - 5
+```
+
+### PS2
+```
+Bubbles.js -> line 126 - 131
+```
+
+
+### After update (Left = new, Right = old):
+<img src="https://i.imgur.com/WERXrxj.jpg">
 
