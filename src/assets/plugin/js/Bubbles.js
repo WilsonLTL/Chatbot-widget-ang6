@@ -16,46 +16,55 @@ function Bubble(container, self, options) {
     // 		constructor name during open session.
 
     var nlp_say = function(text) {
-        data.text=text
+        widget_status = false;
+
+        data.text=text;
         return Promise.resolve(
             axios.get(url+text).then(function (res) {
-                result = res.data
+                result = res.data;
                 // if (result["Success"]===true && result["Speech"] !== ""){
                 //     return result["Speech"]
                 // }else{
                 //     return nlp_noresponse_msg
                 // }
                 if (result["Speech"] !== ""){
+                    widget_status = true;
+
                     if (result["ImageURL"] !== ""){
                         return result["Speech"]+"<br ><img style='width:100%;height:100%;margin: 10px 0px 0px 0px;' src="+result["ImageURL"]+"/>"
                     }
                     return result["Speech"]
                 }else{
+                    widget_status = true;
+
                     return nlp_noresponse_msg
                 }
 
             }, function (error) {
-                console.log(error)
+                console.log(error);
                 return nlp_noresponse_msg
             })
         )
     }
 
     var nlp_reply = function(text) {
-        data.text=text
+        widget_status = false;
+
+        data.text=text;
         return Promise.resolve(
             axios.get(url+text).then(function (res) {
-                result = res.data
-                console.log(result)
+                result = res.data;
+                console.log(result);
 
+                widget_status = true;
                 if (result["Speech"] !== ""){
-                    console.log(result["Reply"])
+                    console.log(result["Reply"]);
                     return result["Reply"]
                 }else{
                     return []
                 }
             }, function (error) {
-                console.log(error)
+                console.log(error);
                 return []
             })
         )

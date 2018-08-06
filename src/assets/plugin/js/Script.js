@@ -1,7 +1,8 @@
 function initBubble () {
   axios.get("https://api.ipify.org?format=json").then(function (res) {
     url = "https://ec2-13-250-42-135.ap-southeast-1.compute.amazonaws.com/DemoGLSHK?Key=0bb18fb84259c567c723ba96188f47ac&AgentID=7&Location="+res.data.ip+"&Say="
-    console.log(url)
+    console.log(url);
+    widget_status = true;
   })
 
   chatWindow = new Bubble(document.getElementById("chat"), "chatWindow", {
@@ -15,6 +16,8 @@ function initBubble () {
       };
 
       let nlp = function(text) {
+        widget_status = false;
+
         console.log("text in Script.js:",text);
         data.text=text
         axios.get(url+text).then(function (res) {
@@ -27,11 +30,13 @@ function initBubble () {
               return_say += "<br ><img style='width:100%;height:100%;margin: 10px 0px 0px 0px;' src="+result["ImageURL"]+"/>"
             }
             reply_message.msg.says.push(return_say);
-            console.log("push reply:",reply_message.msg.reply)
+            console.log("push reply:",reply_message.msg.reply);
           }else{
-            reply_message.msg.says.push(nlp_noresponse_msg)
+            reply_message.msg.says.push(nlp_noresponse_msg);
           }
-          chatWindow.talk(reply_message,"msg",text)
+          chatWindow.talk(reply_message,"msg",text);
+
+          widget_status = true;
         }, function (error) {
           console.log(error)
         })

@@ -56,8 +56,8 @@ send button: Bubbles.js -> 129
 
 ## Remark version 3.4.0 for Hailey:
 <ul>
-<li>Update the new NLP version, please view "PS:1"</li>
-<li>Update of css, please view "PS:2"</li
+<li>Update the new NLP version, please view "PS1"</li>
+<li>Update of css, please view "PS2"</li
 </ul>
 
 
@@ -74,4 +74,8 @@ Bubbles.js -> line 126 - 131
 
 ### After update (Left = new, Right = old):
 <img src="https://i.imgur.com/WERXrxj.jpg">
+
+## Remark version 3.5.0 for Hailey
+Just simple add a script for detect button click in "app.component.ts" as jquery, just modify it as pop up version as you like <br >
+Monitor var "widget_status" to prevent close the tap when nlp request, true for allow, false for block
 
