@@ -1,6 +1,6 @@
 let url = "https://nlp.asiabots.com/CareClub?Key=f9bbe5f386487c416d4153b9ba307ad7&SessionID=CareClubXXX&Location="
 
-let nlp_noresponse_msg = '唔好意思,我唔知你噏乜😥'
+let nlp_noresponse_msg = '不好意思，我不明白你說什麼😥'
 
 let default_home_msg = ''
 
@@ -29,7 +29,13 @@ let initSetting = function () {
         convo = {
           ice: {
             says: [default_home_msg],
-            reply: []
+            reply: [{
+              question: '什麼是CareClub?',answer: 'reply_message'
+            }, {
+              question: 'CareClub可以怎樣幫助管理我的健康?',answer: 'reply_message'
+            }, {
+              question: '如何使用CareClub?',answer: 'reply_message'
+            }]
           },
           reply_message: {
             says: [default_home_msg],

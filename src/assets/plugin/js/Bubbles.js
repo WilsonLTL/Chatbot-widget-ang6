@@ -244,7 +244,7 @@ function Bubble(container, self, options) {
             turn.reply.reverse()
             for (var i = 0; i < turn.reply.length; i++) {
                 (function(el, count) {
-                    console.log("Reply in box:",el.question)
+                  console.log("Reply in box:",el.question)
                     questionsHTML +=
                         '<span class="bubble-button" style="animation-delay: ' +
                         animationTime / 2 * count +
