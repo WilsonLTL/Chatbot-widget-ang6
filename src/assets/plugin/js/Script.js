@@ -1,9 +1,5 @@
 function initBubble () {
-  axios.get("https://api.ipify.org?format=json").then(function (res) {
-    url = "https://ec2-13-250-42-135.ap-southeast-1.compute.amazonaws.com/DemoGLSHK?Key=0bb18fb84259c567c723ba96188f47ac&AgentID=7&Location="+res.data.ip+"&Say="
-    console.log(url);
-    widget_status = true;
-  })
+  widget_status = true;
 
   chatWindow = new Bubble(document.getElementById("chat"), "chatWindow", {
     inputCallbackFn: function(o) {
@@ -20,11 +16,12 @@ function initBubble () {
 
         console.log("text in Script.js:",text);
         data.text=text
+        console.log(url+text)
         axios.get(url+text).then(function (res) {
             result = res.data;
           console.log(result);
           return_say = "";
-          if (result["Speech"] !== ""){
+          if ("Speech" in result && result["Speech"] !== ""){
             return_say = result["Speech"];
             if (result["ImageURL"] !== ""){
               return_say += "<br ><img style='width:100%;height:100%;margin: 10px 0px 0px 0px;' src="+result["ImageURL"]+"/>"
@@ -32,6 +29,7 @@ function initBubble () {
             reply_message.msg.says.push(return_say);
             console.log("push reply:",reply_message.msg.reply);
           }else{
+            console.log("No res")
             reply_message.msg.says.push(nlp_noresponse_msg);
           }
           chatWindow.talk(reply_message,"msg",text);

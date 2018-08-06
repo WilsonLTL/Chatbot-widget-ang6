@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import * as $ from 'jquery';
-declare let initBubble, prepHTML: any;
+declare let initSetting, prepHTML: any;
 
 @Component({
   selector: 'custom-root',
@@ -13,9 +13,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     console.log('Initing ...');
     // prepHTML({relative_path: '../assets/'});
-    const chatWindow = initBubble();
-    $(`.button`).click(function() {
-      $(`.custom-border`).toggle('on');
+    const chatWindow = initSetting();
+    $(`#button`).click(function() {
+      $(`.custom-border`).toggle('');
     });
   }
 }
