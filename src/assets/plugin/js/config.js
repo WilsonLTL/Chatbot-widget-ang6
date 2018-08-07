@@ -17,6 +17,8 @@ let data = {
 
 let convo = {}
 
+widget_status = true
+
 let initSetting = function () {
   return Promise.resolve(
     axios.get("https://api.ipify.org?format=json").then(function (res) {
@@ -49,7 +51,7 @@ let initSetting = function () {
         };
 
         initBubble()
-        return true
+        return widget_status
       })
     })
   )

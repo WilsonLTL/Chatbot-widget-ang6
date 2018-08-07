@@ -420,6 +420,7 @@ function Bubble(container, self, options) {
     // create a bubble
     var bubbleQueue = false
     var addBubble = function(say, posted, reply, live) {
+        widget_status = false
         console.log("addBubble say : user_input",say,":",user_input)
 
         if (say === default_home_msg){
@@ -440,6 +441,7 @@ function Bubble(container, self, options) {
         }else{
             buildBubble(say, posted, reply, live)
         }
+        widget_status = true
     }
 
     // recall previous interactions
