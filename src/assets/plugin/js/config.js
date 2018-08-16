@@ -17,41 +17,41 @@ let data = {
   "text":""
 }
 
+axios.get("https://api.ipify.org?format=json").then(function (res) {
+  url += res.data.ip+"&Say="
+})
+
 let convo = {}
 
 widget_status = true
 
 let initSetting = function () {
-
   return Promise.resolve(
-    axios.get("https://api.ipify.org?format=json").then(function (res) {
-      url += res.data.ip+"&Say="
-
-      axios.get(url+"init").then(function (res) {
-        console.log(res.data['Speech'])
-        default_home_msg = res.data['Speech']
-        res.data['Reply'].forEach(function (e) {
-          default_home_reply_msg.push({question:e,answer:"reply_message"})
-        })
-        convo = {
-          ice: {
-            says: [default_home_msg],
-            reply: default_home_reply_msg
-          },
-          reply_message: {
-            says: [default_home_msg],
-            reply: [
-              {
-                question: "Home",
-                answer: "ice"
-              }
-            ]
-          }
-        };
-
-        initBubble()
-        return widget_status
-      })
+  axios.get(url+"init").then(function (res) {
+    convo = {}
+    console.log(res.data['Speech'])
+    default_home_msg = res.data['Speech']
+    res.data['Reply'].forEach(function (e) {
+      default_home_reply_msg.push({question:e,answer:"reply_message"})
     })
-  )
-}
+    convo = {
+      ice: {
+        says: [default_home_msg],
+        reply: default_home_reply_msg
+      },
+      reply_message: {
+        says: [default_home_msg],
+        reply: [
+          {
+            question: "Home",
+            answer: "ice"
+          }
+        ]
+      }
+    };
+
+    initBubble()
+    return widget_status
+  })
+
+)}
