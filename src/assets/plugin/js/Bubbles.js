@@ -31,8 +31,9 @@ function Bubble(container, self, options) {
                     widget_status = true;
 
                     if (result["ImageURL"] !== ""){
-                        return result["Speech"]+"<br ><img style='width:100%;height:100%;margin: 10px 0px 0px 0px;' src="+result["ImageURL"]+"/>"
+                        return "<img style='width:100%;height:100%;margin: 10px 0px 0px 0px;' src="+result["ImageURL"]+"/> <br >" + result["Speech"]
                     }
+
                     return result["Speech"]
                 }else{
                     widget_status = true;
@@ -59,6 +60,15 @@ function Bubble(container, self, options) {
                 widget_status = true;
                 if (result["Speech"] !== ""){
                     console.log(result["Reply"]);
+
+                  // testing only
+                  if (result["Name"] === "活動服務 - 醫療網路 - 牙醫"){
+                    console.log("in")
+                    return "<img style='width:100%;height:100%;margin: 10px 0px 0px 0px;' src='../image/ICON_Dispensers_6a65d8.svg'/> <br >" + result["Speech"]
+                  }else if(result["Name"] === "活動服務 - 健康網路 - 瑜珈"){
+                    return "<img style='width:100%;height:100%;margin: 10px 0px 0px 0px;' src='../image/icon_YOGA.svg'/> <br >" + result["Speech"]
+                  }
+
                     return result["Reply"]
                 }else{
                     return []

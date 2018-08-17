@@ -24,8 +24,19 @@ function initBubble () {
           if ("Speech" in result && result["Speech"] !== ""){
             return_say = result["Speech"];
             if (result["ImageURL"] !== ""){
-              return_say += "<br ><img style='width:100%;height:100%;margin: 10px 0px 0px 0px;' src="+result["ImageURL"]+"/>"
+              return_say += "<img style='width:100%;height:100%;margin: 10px 0px 0px 0px;' src="+result["ImageURL"]+"/>"
             }
+
+            // testing only
+            if (result["Name"] === "活動服務 - 醫療網路 - 牙醫"){
+              console.log("牙醫")
+              return_say += "<a href='http://localhost:4200/shop/e17ec560-922f-11e8-8069-b956dd8dfd0d'><img style='width:100%;height:100%;margin: 10px 0px 0px 0px;' src='../assets/plugin/image/ICON_Dispensers_6a65d8.svg'/> <br >"
+            }else if(result["Name"] === "活動服務 - 健康網路 - 瑜珈"){
+              console.log("瑜珈")
+              return_say += "<a href='http://localhost:4200/shop/4e757110-9572-11e8-a355-8903f7a7fe56'><img style='width:100%;height:100%;margin: 10px 0px 0px 0px;' src='../assets/plugin/image/icon_YOGA.svg'/></a> <br >"
+            }
+
+            console.log(return_say)
             reply_message.msg.says.push(return_say);
             console.log("push reply:",reply_message.msg.reply);
           }else{
