@@ -1,4 +1,4 @@
-let url = "https://nlp.asiabots.com/CareClub?Key=f9bbe5f386487c416d4153b9ba307ad7&SessionID=CareClubXXX&Location="
+let url = "https://nlp.asiabots.com/CareClubUAT?Key=f9bbe5f386487c416d4153b9ba307ad7&SessionID=CareClubXXX&Location="
 
 let nlp_noresponse_msg = '不好意思，我不明白你說什麼😥'
 
